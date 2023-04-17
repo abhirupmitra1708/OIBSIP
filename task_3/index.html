@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <label>Temperature:</label>
+        <input type="number" id="temperatureInput" placeholder="Enter temperature">
+        <label>Unit:</label>
+        <select id="unitSelect">
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+        </select>
+        <button id="convertBtn">Convert</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('convertBtn').addEventListener('click', function() {
+            var temperatureInput = document.getElementById('temperatureInput').value;
+            var unitSelect = document.getElementById('unitSelect').value;
+            var convertedTemperature;
+            if (unitSelect === 'celsius') {
+                convertedTemperature = (temperatureInput - 32) * 5/9;
+                document.getElementById('result').textContent = convertedTemperature.toFixed(2) + ' °C';
+            } else if (unitSelect === 'fahrenheit') {
+                convertedTemperature = (temperatureInput * 9/5) + 32;
+                document.getElementById('result').textContent = convertedTemperature.toFixed(2) + ' °F';
+            }
+        });
+    </script>
+</body>
+</html>
